@@ -1,12 +1,16 @@
-var APIKey = "6b3dbd71ff84d1310200d7316192a1ec";
-        var searchCity = "locality=charlotte"
-        var queryURL = "https://cors-anywhere.herokuapp.com/https://sandbox-api.brewerydb.com/v2/search?q=" +
-        searchCity +
-        "/?key=" + APIKey;
-        $.ajax({
-            url: queryURL,
-            method: "GET",
-        }).then(function (response) {
-            console.log(queryURL);
-            console.log(response);
-        });
+var APIKey = "&rapidapi-key=fd37675a80msh7185028ba8850b5p1ade34jsnda4a447c074a";
+
+
+
+    var citySearched = $("#user-input")
+    var queryURL = "https://brianiswu-open-brewery-db-v1.p.rapidapi.com/breweries/autocomplete?query=" + citySearched + APIKey;
+
+    $.ajax({
+        url: queryURL,
+        method: "GET",
+    }).then(function (response) {
+        console.log(queryURL);
+        console.log(response);
+        
+    })
+
