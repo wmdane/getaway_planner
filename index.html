@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <title>Project 1</title>
     <link rel="icon" href="https://icons.veryicon.com/png/System/Android%201/Transport%20airplane%20takeoff.png"
         type="image/icon type">
@@ -19,6 +21,7 @@
 
         }
     </style>
+
 </head>
 
 <body>
@@ -32,19 +35,93 @@
     </section>
     <br>
 
+
     <!-- Columns-->
     <div class="container">
         <div class="columns is-mobile is-centered">
             <!--Search City and State Input-->
+
+
+            <!--Search City-->
             <div class="column is-one-fifth">
                 <label for="cityInput">City</label>
                 <input class="input" id="cityInput" type="text" placeholder="Search City">
             </div>
 
+            <!--Search State Input-->
+
             <div class="column is-one-fifth">
                 <label for="cityInput">State</label>
-                <input class="input" id="stateInput" type="text" placeholder="State City">
+                <input class="input" id="stateInput" type="text" placeholder="ie: North Carolina">
             </div>
+
+            <!--Optional Dropdown Box-->
+            <!--
+            <div class="column is-2">
+                <br>
+                <div class="select" id="stateDropdown">
+                    <select class="is-hovered">
+                        <span>
+                        <option selected>Select State</option>
+                        <option id="alabama">Alabama</option>
+                        <option id="alaska">Alaska</option>
+                        <option id="arizona">Arizona</option>
+                        <option id="arkansas">Arkansas</option>
+                        <option id="california">California</option>
+                        <option id="colorado">Colorado</option>
+                        <option id="connecticut">Connecticut</option>
+                        <option id="delaware">Delaware</option>
+                        <option id="florida">Florida</option>
+                        <option id="georgia">Georgia</option>
+                        <option id="hawaii">Hawaii</option>
+                        <option id="idaho">Idaho</option>
+                        <option id="illinois">Illinois</option>
+                        <option id="indiana">Indiana</option>
+                        <option id="iowa">Iowa</option>
+                        <option id="kanasas">Kansas</option>
+                        <option id="kentucky">Kentucky</option>
+                        <option id="lousiana">Louisiana</option>
+                        <option id="main">Main</option>
+                        <option id="maryland">Maryland</option>
+                        <option id="massachusetts">Massachussetts</option>
+                        <option id="michigan">Michigan</option>
+                        <option id="minnesota">Minnesota</option>
+                        <option id="mississippi">Mississippi</option>
+                        <option id="missouri">Missouri</option>
+                        <option id="montana">Montana</option>
+                        <option id="nebraska">Nebraska</option>
+                        <option id="nevada">Nevada</option>
+                        <option id="newHampshire">New Hapmshire</option>
+                        <option id="newJersey">New Jersey</option>
+                        <option id="newMexico">New Mexico</option>
+                        <option id="newYork">New York</option>
+                        <option id="northCarolina">North Carolina</option>
+                        <option id="northDakota">North Dakota</option>
+                        <option id="ohio">Ohio</option>
+                        <option id="oklahoma">Oklahoma</option>
+                        <option id="oregon">Oregon</option>
+                        <option id="pennsylvania">Pennsylvania</option>
+                        <option id="rhodeIsland">Rhode Island</option>
+                        <option id="southCarolina">South Carolina</option>
+                        <option id="southDakota">South Dakota</option>
+                        <option id="tennessee">Tennessee</option>
+                        <option id="texas">Texas</option>
+                        <option id="utah">Utah</option>
+                        <option id="vermont">Vermont</option>
+                        <option id="virginia">Virginia</option>
+                        <option id="washington">Washington</option>
+                        <option id="westVirginia">West Virginia</option>
+                        <option id="wisconsin">Wisconsin</option>
+                        <option id="wyoming">Wyoming</option>
+                        
+                        </span>
+                    </select>
+                </div>
+            
+            </div>
+            -->
+
+            <!--Search Button-->
             <div class="column is-1">
                 <br>
                 <button class="button is-dark" id="submitBtn">Search</button>
@@ -53,53 +130,64 @@
         <br>
         <!--Result Columns-->
         <div class="columns is-mobile has-background-light">
-
+            <!--adding boxes to emphasize division between columns-->
             <div class="box">
-
+                <!--Food results column-->
                 <div class="column" id="foodResults">
-                    <h1 class="title is-3 has-text-centered">Food- James </h1><br>
-                    <p>This is some filler text. This is some filler text.</p>
-                    <p>This is some filler text. This is some filler text.</p>
-                    <p>This is some filler text. This is some filler text.</p>
+                    <h1 class="title is-3 has-text-centered">Food <i class="fas fa-hamburger"></i></h1><br>
+                    <!--display food results here-->
+                    <div id="displayFoodResults">
+                        <p>This is some filler text. This is some filler text.</p>
+                        <p>This is some filler text. This is some filler text.</p>
+                        <p>This is some filler text. This is some filler text.</p>
+                    </div>
                 </div>
 
             </div>
 
             <div class="box">
-
+                <!--Drink results column-->
                 <div class="column" id="drinksResults">
-                    <h1 class="title is-3 has-text-centered">Drinks- Paul </h1> <br>
-                    <p>This is some filler text. This is some filler text.</p>
-                    <p>This is some filler text. This is some filler text.</p>
-                    <p>This is some filler text. This is some filler text.</p>
+                    <h1 class="title is-3 has-text-centered">Drinks <i class="fas fa-glass-cheers"></i> </h1> <br>
+                    <!--display drink results here-->
+                    <div id="displayDrinkResults">
+                        <p>This is some filler text. This is some filler text.</p>
+                        <p>This is some filler text. This is some filler text.</p>
+                        <p>This is some filler text. This is some filler text.</p>
+                    </div>
                 </div>
-
             </div>
 
             <div class="box">
-
+                <!--Weather results column-->
                 <div class="column" id="weatherResults">
-                    <h1 class="title is-3 has-text-centered">Weather- Will </h1><br>
-                    <p>This is some filler text. This is some filler text.</p>
-                    <p>This is some filler text. This is some filler text.</p>
-                    <p>This is some filler text. This is some filler text.</p>
+                    <h1 class="title is-3 has-text-centered">Weather <i class="fas fa-cloud-sun"></i> </h1><br>
+                    <!--display drink results here-->
+                    <div id="displayWeatherResults">
+                        <p>This is some filler text. This is some filler text.</p>
+                        <p>This is some filler text. This is some filler text.</p>
+                        <p>This is some filler text. This is some filler text.</p>
+                    </div>
                 </div>
-
             </div>
 
             <div class="box">
-
+                <!--Search History column-->
                 <div class="column" id="searcHistory">
-                    <h1 class="title is-3 has-text-centered">Search History- All </h1><br>
-                    <p>This is some filler text. This is some filler text.</p>
-                    <p>This is some filler text. This is some filler text.</p>
-                    <p>This is some filler text. This is some filler text.</p>
+                    <h1 class="title is-3 has-text-centered">Search History <i class="fas fa-history"></i></h1><br>
+                    <div id="displaySearchHistory">
+                        <p>This is some filler text. This is some filler text.</p>
+                        <p>This is some filler text. This is some filler text.</p>
+                        <p>This is some filler text. This is some filler text.</p>
+                    </div>
                 </div>
-
             </div>
 
         </div>
     </div>
+    <script src="food.js"></script>
+    <script src="drinks.js"></script>
+    <script src="weather.js"></script>
 </body>
 
 </html>

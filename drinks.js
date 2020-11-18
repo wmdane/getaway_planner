@@ -16,7 +16,7 @@ var APIKey = "&rapidapi-key=fd37675a80msh7185028ba8850b5p1ade34jsnda4a447c074a";
             return brewery.state === "North Carolina" && brewery.city === "Charlotte"
         })
         console.log(result);
-        var numberResults = 10;        //$("#some-value").val();
+        var numberResults = 10;//$("#some-value").val();
         for (var i = 0; i < numberResults; i++) {
             var cityBox = $("<div>");
             cityBox.addClass("box");
@@ -41,4 +41,5 @@ var APIKey = "&rapidapi-key=fd37675a80msh7185028ba8850b5p1ade34jsnda4a447c074a";
         }   
         
     })
+
 // })
