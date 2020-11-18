@@ -44,11 +44,7 @@ function getCity() {
         }
     })
 }
-<<<<<<< HEAD
-getCity();
-=======
 $("#submitBtn").on("click", function(){
     $("#displayFoodResults").empty();
     getCity();
 });
->>>>>>> 1f9115d3878bff22f6e5aa172fd896c51fa06ea7
