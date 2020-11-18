@@ -1,6 +1,6 @@
 function findLonLat() {
   var apiKey = "2cc514a953dcebe642cacc9f80f42e25";
-  var cityName = "#cityInput";
+  var cityName = $("#cityInput").val().trim();
   var queryURL =
     "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + apiKey;
   $.ajax({
@@ -28,30 +28,42 @@ function findLonLat() {
         method: "GET",
       }).then(function (response) {
         console.log(response);
-        for (var i = 1; i < response.daily.length; i++) {
+        for (var i = 0; i < response.daily.length; i++) {
           var weatherBox = $("<div>");
           weatherBox.addClass("box");
           var date = $("<h5>");
           date.text(moment().add(i, "day").calendar());
+          var weatherIcon = response.daily[i].weather[0].icon;
           var icon = $("<img>");
           icon.attr("src", "http://openweathermap.org/img/w/" + weatherIcon + ".png");
-          icon.attr("width", "40px");
+          icon.attr("width", "50px");
           var highTempLine = $("<p>");
           highTempLine.text(highTemp);
           var lowTempLine = $("<p>");
           lowTempLine.text(lowTemp);
           var windSpeedLine = $("<p>");
           windSpeedLine.text(windSpeed);
-          var weatherIcon = response.daily[i].weather.icon;
-          var highTemp = "High: " + response.daily[i].temp.max;
-          var lowTemp = "Low: " + response.daily[i].temp.min;
-          var windSpeed = "Wind Speed: " + response.daily[i].wind_speed;
-          weatherBox.append(date, icon, highTemp, lowTemp, windSpeed);
+          var highTemp = "High: " + response.daily[i].temp.max + "°F";
+          var lowTemp = "Low: " + response.daily[i].temp.min + "°F";
+          var windSpeed = "Wind Speed: " + response.daily[i].wind_speed + "MPH";
+          weatherBox.append(
+            date,
+            $("<br>"),
+            icon,
+            $("<br>"),
+            highTemp,
+            $("<br>"),
+            lowTemp,
+            $("<br>"),
+            windSpeed
+          );
+          $("#displayWeatherResults").append(weatherBox);
         }
       });
     }
   });
 }
 $("#submitBtn").on("click", function () {
+  $("#displayWeatherResults").empty();
   findLonLat();
 });
