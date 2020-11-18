@@ -19,7 +19,7 @@ $(document).ready(function() {
                 return brewery.state === stateSearched && brewery.city === citySearched;
             })
             //console.log(result);
-            var numberResults = 10;//$("#some-value").val();
+            var numberResults = 10;
             $("#displayDrinkResults").html("");
             for (var i = 0; i < numberResults; i++) {
                 var cityBox = $("<div>");
@@ -56,6 +56,7 @@ $(document).ready(function() {
 
             renderHistory();
             
+            return null
         })
 
         
@@ -67,6 +68,8 @@ $(document).ready(function() {
             b.text(input);
             $("#displaySearchHistory").append(b);
         }
+
+        
     })
 
     
