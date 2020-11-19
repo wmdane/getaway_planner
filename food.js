@@ -20,7 +20,7 @@ function getCity() {
             nonSearch();
         }
         function nonSearch() {
-            var yelpURL = "https://www.yelp.com/search?find_desc=&find_loc=" + cityInput + "%2C+" + stateInput + "&ns=1";
+            var yelpURL = "https://www.yelp.com/search?find_desc=restaurants&find_loc=" + cityInput + "%2C+" + stateInput + "&ns=1";
             var messageBox = $("<div>");
             messageBox.addClass("box");
 
