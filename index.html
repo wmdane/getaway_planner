@@ -16,20 +16,18 @@
     <link rel="icon" href="https://icons.veryicon.com/png/System/Android%201/Transport%20airplane%20takeoff.png"
         type="image/icon type">
     <style>
-        #bg-img {
-            background-image: url("http://www.halongbooking.net/wp-content/uploads/2016/01/travel-banner-halong.jpg");
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-attachment: local;
-            background-size: cover;
-            background-position-y: top;
-
-        }
+      #bg-img {
+        background-image: url("https://www.halongbooking.net/wp-content/uploads/2016/01/travel-banner-halong.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: local;
+        background-size: cover;
+        background-position-y: top;
+      }
     </style>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <section class="hero" id="bg-img">
         <div class="hero-body">
             <div class="container">
@@ -38,31 +36,30 @@
                     there</h2>
             </div>
         </div>
+      </div>
     </section>
-    <br>
-
+    <br />
 
     <!-- Columns-->
     <div class="container">
-        <div class="columns is-mobile is-centered">
-            <!--Search City and State Input-->
+      <div class="columns is-mobile is-centered">
+        <!--Search City and State Input-->
 
+        <!--Search City-->
+        <div class="column is-one-fifth">
+          <label for="cityInput">City</label>
+          <input class="input" id="cityInput" type="text" placeholder="Search City" />
+        </div>
 
-            <!--Search City-->
-            <div class="column is-one-fifth">
-                <label for="cityInput">City</label>
-                <input class="input" id="cityInput" type="text" placeholder="Search City">
-            </div>
+        <!--Search State Input-->
 
-            <!--Search State Input-->
+        <div class="column is-one-fifth">
+          <label for="cityInput">State</label>
+          <input class="input" id="stateInput" type="text" placeholder="ie: North Carolina" />
+        </div>
 
-            <div class="column is-one-fifth">
-                <label for="cityInput">State</label>
-                <input class="input" id="stateInput" type="text" placeholder="ie: North Carolina">
-            </div>
-
-            <!--Optional Dropdown Box-->
-            <!--
+        <!--Optional Dropdown Box-->
+        <!--
             <div class="column is-2">
                 <br>
                 <div class="select" id="stateDropdown">
@@ -127,11 +124,28 @@
             </div>
             -->
 
-            <!--Search Button-->
-            <div class="column is-1">
-                <br>
-                <button class="button is-dark" id="submitBtn">Search</button>
+        <!--Search Button-->
+        <div class="column is-1">
+          <br />
+          <button class="button is-dark" id="submitBtn">Search</button>
+        </div>
+      </div>
+      <br />
+      <!--Result Columns-->
+      <div class="columns is-mobile has-background-light">
+        <!--adding boxes to emphasize division between columns-->
+        <div class="box">
+          <!--Food results column-->
+          <div class="column" id="foodResults">
+            <h1 class="title is-3 has-text-centered">Food <i class="fas fa-hamburger"></i></h1>
+            <br />
+            <!--display food results here-->
+            <div id="displayFoodResults">
+              <p>This is some filler text. This is some filler text.</p>
+              <p>This is some filler text. This is some filler text.</p>
+              <p>This is some filler text. This is some filler text.</p>
             </div>
+          </div>
         </div>
         <br>
         <!--Result Columns-->
@@ -147,7 +161,19 @@
                     </div>
                 </div>
 
+        <div class="box">
+          <!--Drink results column-->
+          <div class="column" id="drinksResults">
+            <h1 class="title is-3 has-text-centered">Drinks <i class="fas fa-glass-cheers"></i></h1>
+            <br />
+            <!--display drink results here-->
+            <div id="displayDrinkResults">
+              <p>This is some filler text. This is some filler text.</p>
+              <p>This is some filler text. This is some filler text.</p>
+              <p>This is some filler text. This is some filler text.</p>
             </div>
+          </div>
+        </div>
 
             <div class="box">
                 <!--Drink results column-->
@@ -171,6 +197,8 @@
                     </div>
                 </div>
             </div>
+          </div>
+        </div>
 
             <div class="box">
                 <!--Search History column-->
@@ -184,12 +212,12 @@
                     </div>
                 </div>
             </div>
-
+          </div>
         </div>
+      </div>
     </div>
     <script src="food.js"></script>
     <script src="drinks.js"></script>
     <script src="weather.js"></script>
-</body>
-
+  </body>
 </html>
