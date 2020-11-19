@@ -77,7 +77,7 @@ $(document).ready(function() {
             var b = $("<button>");
             b.addClass("search-button");
             //var input = localStorage.getItem('userInput');
-            b.text(array);
+            b.text(input);
             $("#displaySearchHistory").append(b);
         };
 
@@ -90,6 +90,6 @@ $(document).ready(function() {
             yelpLink.text("Try Yelp instead");
             messageBox.append(yelpLink);
             $("#displayDrinkResults").append(messageBox);
-        }
+        };
     });
 });
