@@ -1,6 +1,6 @@
-function findLonLat() {
+function findLonLat(cityValue) {
   var apiKey = "2cc514a953dcebe642cacc9f80f42e25";
-  var cityName = $("#cityInput").val().trim();
+  var cityName = cityValue;
   var queryURL =
     "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + apiKey;
   $.ajax({
@@ -63,7 +63,3 @@ function findLonLat() {
     }
   });
 }
-$("#submitBtn").on("click", function () {
-  $("#displayWeatherResults").empty();
-  findLonLat();
-});
