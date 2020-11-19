@@ -18,45 +18,51 @@ $(document).ready(function() {
             var result = response.filter(function(brewery) {
                 return brewery.state === stateSearched && brewery.city === citySearched;
             })
+
             //console.log(result);
-            var numberResults = 10;
-            $("#displayDrinkResults").html("");
-            for (var i = 0; i < numberResults; i++) {
-                var cityBox = $("<div>");
-                cityBox.addClass("box");
+            if (result.length === 0) {
+                $("#displayDrinkResults").text("Sorry no micro breweries found. Please try another city.")
+                renderHistory();
+            }
+            else {
+                var numberResults = 10;
+                $("#displayDrinkResults").html("");
+                for (var i = 0; i < numberResults; i++) {
+                    var cityBox = $("<div>");
+                    cityBox.addClass("box");
 
-                var nameLine = $("<h3>");
-                var name = "Brewery: " + result[i].name;
-                nameLine.text(name);
+                    var nameLine = $("<h3>");
+                    var name = "Brewery: " + result[i].name;
+                    nameLine.text(name);
 
-                var addressLine = $("<p>");
-                var street = result[i].street;
-                var city = result[i].city;
-                var state = result[i].state;
-                var zip = result[i].postal_code;
-                var address = "Address: " + street + ", " + city + ", " + state + " " + zip;
-                addressLine.text(address);
+                    var addressLine = $("<p>");
+                    var street = result[i].street;
+                    var city = result[i].city;
+                    var state = result[i].state;
+                    var zip = result[i].postal_code;
+                    var address = "Address: " + street + ", " + city + ", " + state + " " + zip;
+                    addressLine.text(address);
 
-                var phoneLine = $("<p>");
-                var phoneNum = "Phone Number: " + result[i].phone;
-                phoneLine.text(phoneNum);
+                    var phoneLine = $("<p>");
+                    var phoneNum = "Phone Number: " + result[i].phone;
+                    phoneLine.text(phoneNum);
 
-                var websiteLine = $("<a>");
-                var website = result[i].website_url;
-                websiteLine.attr("href", website);
-                websiteLine.text("Brewery Website: " + website);
+                    var websiteLine = $("<a>");
+                    var website = result[i].website_url;
+                    websiteLine.attr("href", website);
+                    websiteLine.text("Brewery Website: " + website);
+                
+                    cityBox.append(nameLine, addressLine, phoneLine, websiteLine);
+                
+                    $("#displayDrinkResults").append(cityBox);
+
+                    localStorage.setItem('userInput', userInput);
+
+                }   
+
+                renderHistory();
+            }
             
-                cityBox.append(nameLine, addressLine, phoneLine, websiteLine);
-            
-                $("#displayDrinkResults").append(cityBox);
-
-                localStorage.setItem('userInput', userInput);
-
-            }   
-
-            renderHistory();
-            
-            return null
         })
 
         
