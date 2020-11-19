@@ -22,9 +22,10 @@ $(document).ready(function() {
 
             //console.log(result);
             if (result.length === 0) {
-                $("#displayDrinkResults").text("Sorry no micro breweries found. Please try another city.");
+                $("#displayDrinkResults").text("Sorry, Open Breweries DB did not return any micro breweries for this city. Search another city, OR");
                 localStorage.setItem('userInput', userInput);
                 renderHistory();
+                nonSearch();
             }
             else {
                 var numberResults = 10;
@@ -59,6 +60,7 @@ $(document).ready(function() {
                     $("#displayDrinkResults").append(cityBox);
 
                     localStorage.setItem('userInput', userInput);
+                    console.log(userInput);
                 };  
 
                 renderHistory();
@@ -78,5 +80,16 @@ $(document).ready(function() {
             b.text(array);
             $("#displaySearchHistory").append(b);
         };
+
+        function nonSearch() {
+            var yelpURL = "https://www.yelp.com/search?find_desc=Breweries&find_loc=" + citySearched + "%2C+" + stateSearched + "&ns=1";
+            var messageBox = $("<div>");
+            messageBox.addClass("box");
+            var yelpLink = $("<a>");
+            yelpLink.attr("href", yelpURL);
+            yelpLink.text("Try Yelp instead");
+            messageBox.append(yelpLink);
+            $("#displayDrinkResults").append(messageBox);
+        }
     });
 });
