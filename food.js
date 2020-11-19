@@ -11,10 +11,31 @@ function getCity() {
             return city.state_name === stateInput;
         });
         console.log(result);
-        cityID = result[0].id;
-        console.log(cityID);
-        searchZomato();
-        return cityID;
+        if (result.length){
+            cityID = result[0].id;
+            console.log(cityID);
+            searchZomato();
+            return cityID;
+        } else {
+            nonSearch();
+        }
+        function nonSearch() {
+            var yelpURL = "https://www.yelp.com/search?find_desc=&find_loc=" + cityInput + "%2C+" + stateInput + "&ns=1";
+            var messageBox = $("<div>");
+            messageBox.addClass("box");
+
+            var messageDiv = $("<p>");
+            messageDiv.text("Zomato did not return any restaurants for this city.");
+
+            var yelpLink = $("<a>");
+            yelpLink.attr("href", yelpURL);
+            yelpLink.text("Try Yelp instead");
+
+            messageBox.append(messageDiv, yelpLink);
+            $("#displayFoodResults").append(messageBox);
+
+
+        }
         function searchZomato() {
             var cityCode = cityID;
             var queryURL = "https://developers.zomato.com/api/v2.1/search?apikey=f2f17d46cbed2f06723d01c2bf241ca1&entity_id=" + cityCode + "&entity_type=city&sort=rating";
