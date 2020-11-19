@@ -1,11 +1,17 @@
 function getCity() {
     var cityInput = $("#cityInput").val();
+    var stateInput = $("#stateInput").val();
     var queryURL2 = "https://developers.zomato.com/api/v2.1/cities?q=" + cityInput + "&apikey=f2f17d46cbed2f06723d01c2bf241ca1";
     $.ajax({
         url: queryURL2,
         method: "GET"
     }).then(function (response) {
-        cityID = response.location_suggestions[0].id;
+        console.log(response);
+        var result = response.location_suggestions.filter(function(city){
+            return city.state_name === stateInput;
+        });
+        console.log(result);
+        cityID = result[0].id;
         console.log(cityID);
         searchZomato();
         return cityID;
@@ -34,10 +40,6 @@ function getCity() {
                     menuLink.text("Menu");
                     restaurantBox.append(nameDiv, addressDiv, costDiv, menuLink);
                     $("#displayFoodResults").append(restaurantBox);
-                    console.log(restaurantName);
-                    console.log("Address: " + address);
-                    console.log("Average cost for two: " + avgCost);
-                    console.log("Menu: " + menuURL);
                     //console.log(response.restaurants[i].restaurant);
                 }
             })
