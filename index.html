@@ -1,31 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
-    <link
-      rel="stylesheet"
-      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.min.js"
-      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
-      crossorigin="anonymous"
-    ></script>
-    <title>Project 1</title>
-    <link
-      rel="icon"
-      href="https://icons.veryicon.com/png/System/Android%201/Transport%20airplane%20takeoff.png"
-      type="image/icon type"
-    />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script src="http://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+        integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+        crossorigin="anonymous"></script>
+    <title>Getaway Planner</title>
+    <link rel="icon" href="https://icons.veryicon.com/png/System/Android%201/Transport%20airplane%20takeoff.png"
+        type="image/icon type">
     <style>
       #bg-img {
         background-image: url("https://www.halongbooking.net/wp-content/uploads/2016/01/travel-banner-halong.jpg");
@@ -40,10 +29,12 @@
 
   <body>
     <section class="hero" id="bg-img">
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title is-1 level-item has-text-centered my-4">Our Title</h1>
-          <h2 class="subtitle level-item has-text-centered mb-4">Do We Want a Subtitle?</h2>
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title is-1 level-item has-text-centered my-4">Getaway Planner</h1>
+                <h2 class="subtitle level-item has-text-centered mb-4">Find food, drinks and weather before you get
+                    there</h2>
+            </div>
         </div>
       </div>
     </section>
@@ -156,6 +147,19 @@
             </div>
           </div>
         </div>
+        <br>
+        <!--Result Columns-->
+        <div class="columns is-mobile has-background-light">
+            <!--adding boxes to emphasize division between columns-->
+            <div class="box">
+                <!--Food results column-->
+                <div class="column" id="foodResults">
+                    <h1 class="title is-3 has-text-centered">Food <i class="fas fa-hamburger"></i></h1><br>
+                    <!--display food results here-->
+                    <p class="has-text-centered">Find the best food in any city!</p>
+                    <div id="displayFoodResults">
+                    </div>
+                </div>
 
         <div class="box">
           <!--Drink results column-->
@@ -171,31 +175,42 @@
           </div>
         </div>
 
-        <div class="box">
-          <!--Weather results column-->
-          <div class="column" id="weatherResults">
-            <h1 class="title is-3 has-text-centered">Weather <i class="fas fa-cloud-sun"></i></h1>
-            <br />
-            <!--display drink results here-->
-            <div id="displayWeatherResults">
-              <p>This is some filler text. This is some filler text.</p>
-              <p>This is some filler text. This is some filler text.</p>
-              <p>This is some filler text. This is some filler text.</p>
+            <div class="box">
+                <!--Drink results column-->
+                <div class="column is-one-quarters" id="drinksResults">
+                    <h1 class="title is-3 has-text-centered">Drinks <i class="fas fa-glass-cheers"></i> </h1> <br>
+                    <!--display drink results here-->
+                    <p class="has-text-centered">Find the best breweries near your destination!</p>
+                    <div id="displayDrinkResults">
+                    </div>
+                </div>
+            </div>
+
+            <div class="box">
+                <!--Weather results column-->
+                <div class="column" id="weatherResults">
+                    <h1 class="title is-3 has-text-centered">Weather <i class="fas fa-cloud-sun"></i> </h1><br>
+                    <!--display drink results here-->
+                    <p class="has-text-centered">What's the weather like at your destination?</p>
+                    <div id="displayWeatherResults">
+                        
+                    </div>
+                </div>
             </div>
           </div>
         </div>
 
-        <div class="box">
-          <!--Search History column-->
-          <div class="column" id="searcHistory">
-            <h1 class="title is-3 has-text-centered">
-              Search History <i class="fas fa-history"></i>
-            </h1>
-            <br />
-            <div id="displaySearchHistory">
-              <p>This is some filler text. This is some filler text.</p>
-              <p>This is some filler text. This is some filler text.</p>
-              <p>This is some filler text. This is some filler text.</p>
+            <div class="box">
+                <!--Search History column-->
+                <div class="column" id="searcHistory">
+                    <h1 class="title is-3 has-text-centered">Recent Searches <i class="fas fa-history"></i></h1><br>
+                    <p class="has-text-centered"></p>
+                    <div id="displaySearchHistory">
+                    
+                        
+                        
+                    </div>
+                </div>
             </div>
           </div>
         </div>
