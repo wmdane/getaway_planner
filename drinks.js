@@ -15,13 +15,15 @@ $(document).ready(function() {
         }).then(function (response) {
             // console.log(queryURL);
             // console.log(response);
+
             var result = response.filter(function(brewery) {
                 return brewery.state === stateSearched && brewery.city === citySearched;
             })
 
             //console.log(result);
             if (result.length === 0) {
-                $("#displayDrinkResults").text("Sorry no micro breweries found. Please try another city.")
+                $("#displayDrinkResults").text("Sorry no micro breweries found. Please try another city.");
+                localStorage.setItem('userInput', userInput);
                 renderHistory();
             }
             else {
@@ -57,27 +59,24 @@ $(document).ready(function() {
                     $("#displayDrinkResults").append(cityBox);
 
                     localStorage.setItem('userInput', userInput);
-
-                }   
+                };  
 
                 renderHistory();
-            }
-            
-        })
 
-        
+            };
+            
+        });
+
         function renderHistory() {
             
+            var array = [];
+            array.push(localStorage.getItem('userInput'));
+
             var b = $("<button>");
             b.addClass("search-button");
-            var input = localStorage.getItem('userInput');
-            b.text(input);
+            //var input = localStorage.getItem('userInput');
+            b.text(array);
             $("#displaySearchHistory").append(b);
-        }
-
-        
-    })
-
-    
-
-})
+        };
+    });
+});
