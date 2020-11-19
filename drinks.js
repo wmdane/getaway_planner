@@ -28,9 +28,11 @@ $(document).ready(function() {
                 nonSearch();
             }
             else {
-                var numberResults = 10;
+                //var numberResults = 10;
                 $("#displayDrinkResults").html("");
-                for (var i = 0; i < numberResults; i++) {
+                localStorage.setItem('userInput', userInput);
+                renderHistory();
+                for (var i = 0; i < result.length; i++) {
                     var cityBox = $("<div>");
                     cityBox.addClass("box");
 
@@ -59,27 +61,23 @@ $(document).ready(function() {
                 
                     $("#displayDrinkResults").append(cityBox);
 
-                    localStorage.setItem('userInput', userInput);
+                    
                     console.log(userInput);
-                };  
-
-                renderHistory();
+                    
+                };                 
 
             };
             
-        });
-
-        function renderHistory() {
+            function renderHistory() {
             
-            var array = [];
-            array.push(localStorage.getItem('userInput'));
+                var b = $("<button>");
+                b.addClass("search-button");
+                var input = localStorage.getItem('userInput');
+                b.text(input);
+                $("#displaySearchHistory").append(b);
+            };
 
-            var b = $("<button>");
-            b.addClass("search-button");
-            //var input = localStorage.getItem('userInput');
-            b.text(input);
-            $("#displaySearchHistory").append(b);
-        };
+        });
 
         function nonSearch() {
             var yelpURL = "https://www.yelp.com/search?find_desc=Breweries&find_loc=" + citySearched + "%2C+" + stateSearched + "&ns=1";
