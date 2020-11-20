@@ -35,7 +35,7 @@ function findLonLat(cityValue) {
           date.text(moment().add(i, "day").calendar());
           var weatherIcon = response.daily[i].weather[0].icon;
           var icon = $("<img>");
-          icon.attr("src", "http://openweathermap.org/img/w/" + weatherIcon + ".png");
+          icon.attr("src", "https://openweathermap.org/img/w/" + weatherIcon + ".png");
           icon.attr("width", "50px");
           var highTempLine = $("<p>");
           highTempLine.text(highTemp);
