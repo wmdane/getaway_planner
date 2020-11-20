@@ -1,5 +1,23 @@
 var APIKey = "&rapidapi-key=fd37675a80msh7185028ba8850b5p1ade34jsnda4a447c074a";
 
+// Extracted renderHistory function from findDrinks function to increase scope
+function renderHistory() {
+  var inputs = JSON.parse(localStorage.getItem("userInput"));
+
+  for (var i = 0; i < inputs.length; i++) {
+    var input = inputs[i];
+    var [city, state] = input.split(", ");
+    var b = $("<button>");
+    b.attr("data-city", city);
+    b.attr("data-state", state);
+    b.addClass("search-button");
+    b.text(input);
+    // Appended <br> to create a new line between buttons
+    $("#displaySearchHistory").append("<br>");
+    $("#displaySearchHistory").append(b);
+  }
+}
+
 function findDrinks(citySearched, stateSearched) {
   var queryURL =
     "https://brianiswu-open-brewery-db-v1.p.rapidapi.com/breweries/search?query=micro" + APIKey;
@@ -59,20 +77,7 @@ function findDrinks(citySearched, stateSearched) {
       }
     }
 
-    function renderHistory() {
-      var inputs = JSON.parse(localStorage.getItem("userInput"));
-
-      for (var i = 0; i < inputs.length; i++) {
-        var input = inputs[i];
-        var [city, state] = input.split(", ");
-        var b = $("<button>");
-        b.attr("data-city", city);
-        b.attr("data-state", state);
-        b.addClass("search-button");
-        b.text(input);
-        $("#displaySearchHistory").append(b);
-      }
-    }
+    
   });
 
   function nonSearch() {
