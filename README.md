@@ -38,8 +38,12 @@ Will - OpenWeatherMap
 
 # View live link
 
-https://wmdane.github.io/project_1/
+https://wmdane.github.io/getaway_planner/
 
 # View code on Github
 
-https://github.com/wmdane/project_1
+https://github.com/wmdane/getaway_planner
+
+#Screenshot
+
+![Screenshot (81)](https://user-images.githubusercontent.com/73077219/99841538-57713080-2b3c-11eb-9174-2830d451af9c.png)
