@@ -37,7 +37,7 @@ function findDrinks(citySearched, stateSearched) {
 
     
     renderHistory();
-    console.log(result);
+    // console.log(result);
     if (result.length === 0) {
       $("#displayDrinkResults").text(
         "Sorry, Open Breweries DB did not return any micro breweries for this city. Search another city, OR"

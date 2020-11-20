@@ -9,14 +9,14 @@ function getCity(cityValue, stateValue) {
     url: queryURL2,
     method: "GET",
   }).then(function (response) {
-    console.log(response);
+    // console.log(response);
     var result = response.location_suggestions.filter(function (city) {
       return city.state_name === stateInput;
     });
-    console.log(result);
+    // console.log(result);
     if (result.length) {
       cityID = result[0].id;
-      console.log(cityID);
+      // console.log(cityID);
       searchZomato();
       return cityID;
     } else {
