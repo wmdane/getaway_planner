@@ -9,7 +9,7 @@ function findLonLat(cityValue) {
   }).then(function (response) {
     var lon = response.coord.lon;
     var lat = response.coord.lat;
-    console.log(response);
+    // console.log(response);
     buildQueryURL();
     return lon, lat;
     function buildQueryURL() {
@@ -27,7 +27,7 @@ function findLonLat(cityValue) {
         url: queryURL,
         method: "GET",
       }).then(function (response) {
-        console.log(response);
+        // console.log(response);
         for (var i = 0; i < response.daily.length; i++) {
           var weatherBox = $("<div>");
           weatherBox.addClass("box");
@@ -35,7 +35,7 @@ function findLonLat(cityValue) {
           date.text(moment().add(i, "day").calendar());
           var weatherIcon = response.daily[i].weather[0].icon;
           var icon = $("<img>");
-          icon.attr("src", "http://openweathermap.org/img/w/" + weatherIcon + ".png");
+          icon.attr("src", "https://openweathermap.org/img/w/" + weatherIcon + ".png");
           icon.attr("width", "50px");
           var highTempLine = $("<p>");
           highTempLine.text(highTemp);
