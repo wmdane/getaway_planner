@@ -1,4 +1,7 @@
 $(document).ready(function () {
+  // calling function in event.js so that history comes up upon refresh or page-load
+  renderHistory();
+
   function handleEvents(city, state) {
     $("#displayWeatherResults").empty();
     $("#displayFoodResults").empty();

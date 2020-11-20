@@ -70,7 +70,7 @@ function getCity(cityValue, stateValue) {
           menuLink.text("Menu");
           restaurantBox.append(nameDiv, addressDiv, costDiv, menuLink);
           $("#displayFoodResults").append(restaurantBox);
-          //console.log(response.restaurants[i].restaurant);
+          
         }
       });
     }
