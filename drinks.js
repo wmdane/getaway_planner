@@ -3,19 +3,22 @@ var APIKey = "&rapidapi-key=fd37675a80msh7185028ba8850b5p1ade34jsnda4a447c074a";
 // Extracted renderHistory function from findDrinks function to increase scope
 function renderHistory() {
   var inputs = JSON.parse(localStorage.getItem("userInput"));
+  if(inputs != null){
 
-  for (var i = 0; i < inputs.length; i++) {
-    var input = inputs[i];
-    var [city, state] = input.split(", ");
-    var b = $("<button>");
-    b.attr("data-city", city);
-    b.attr("data-state", state);
-    b.addClass("search-button");
-    b.text(input);
-    // Appended <br> to create a new line between buttons
-    $("#displaySearchHistory").append("<br>");
-    $("#displaySearchHistory").append(b);
+    for (var i = 0; i < inputs.length; i++) {
+      var input = inputs[i];
+      var [city, state] = input.split(", ");
+      var b = $("<button>");
+      b.attr("data-city", city);
+      b.attr("data-state", state);
+      b.addClass("search-button");
+      b.text(input);
+      // Appended <br> to create a new line between buttons
+      $("#displaySearchHistory").append("<br>");
+      $("#displaySearchHistory").append(b);
+    }
   }
+  
 }
 
 function findDrinks(citySearched, stateSearched) {
@@ -26,14 +29,13 @@ function findDrinks(citySearched, stateSearched) {
     url: queryURL,
     method: "GET",
   }).then(function (response) {
-    // console.log(queryURL);
-    // console.log(response);
+    
 
     var result = response.filter(function (brewery) {
       return brewery.state === stateSearched && brewery.city === citySearched;
     });
 
-    //console.log(result);
+    
     renderHistory();
     console.log(result);
     if (result.length === 0) {
@@ -42,7 +44,7 @@ function findDrinks(citySearched, stateSearched) {
       );
       nonSearch();
     } else {
-      //var numberResults = 10;
+      
 
       for (var i = 0; i < result.length; i++) {
         var cityBox = $("<div>");
@@ -73,7 +75,7 @@ function findDrinks(citySearched, stateSearched) {
 
         $("#displayDrinkResults").append(cityBox);
 
-        // console.log(userInput);
+       
       }
     }
 
